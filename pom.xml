@@ -66,4 +66,23 @@
 
     </dependencies>
 
+    <profiles>
+    <profile>
+        <id>local</id>
+        <properties>
+            <spring.profiles.active>local</spring.profiles.active>
+        </properties>
+    </profile>
+</profiles>
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+
+
 </project>
