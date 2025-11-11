@@ -28,20 +28,25 @@ public class ProductDao {
                      "VALUES (?, ?, ?, ?, ?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        jdbc.update((Connection con) -> {
+        jdbc.update(con -> {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, p.getProjectNo());
             ps.setString(2, p.getPartName());
             ps.setString(3, p.getDrawingNo());
             ps.setString(4, p.getCustomer());
             ps.setString(5, p.getMaterial());
-            ps.setInt(6, p.getOrderQty());
+            if (p.getOrderQty() != null)
+                ps.setInt(6, p.getOrderQty());
+            else
+                ps.setNull(6, java.sql.Types.INTEGER);
             ps.setString(7, p.getOtherDetails());
             return ps;
         }, keyHolder);
 
-        return keyHolder.getKey().longValue();
+        Number key = keyHolder.getKey();
+        return key != null ? key.longValue() : null;
     }
+
 
     // ✅ Find Product by ID
     public Product findProductById(Long id) {
