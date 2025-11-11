@@ -21,25 +21,31 @@ public class ProductController {
     private AppService appService;
 
     // ✅ Add Product
-    @PostMapping("/add-product")
-    public ResponseEntity<Map<String, Object>> addProduct(@RequestBody Product product) {
+    @PostMapping("/products/add")
+    public ResponseEntity<?> addProduct(@RequestBody Product p) {
         try {
-            // Save product and get saved entity with ID
-            Product savedProduct = appService.saveProduct(product);
+            Product saved = appService.saveProduct(p);
+            if (saved != null) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("message", "Product added successfully");
+                response.put("productId", saved.getId());
+                response.put("product", saved);
 
-            Map<String, Object> response = new HashMap<>();
-            response.put("productId", savedProduct.getId()); // return ID for adding dimensions
-            response.put("message", "Product added successfully");
-            response.put("product", savedProduct); // optional: full product details
+                return ResponseEntity.ok(response);
+            }
 
-            return ResponseEntity.ok(response);
+            Map<String, Object> fail = new HashMap<>();
+            fail.put("message", "Failed to add product");
+            return ResponseEntity.status(500).body(fail);
+
         } catch (Exception e) {
             e.printStackTrace();
             Map<String, Object> error = new HashMap<>();
-            error.put("message", "Failed to add product");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
+            error.put("message", "Error adding product");
+            return ResponseEntity.status(500).body(error);
         }
     }
+
 
     // ✅ Search by Drawing No
     @GetMapping("/search")
