@@ -7,8 +7,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+@CrossOrigin(
+	    origins = {
+	        "https://jayengineering.netlify.app",
+	        "https://69138be527cb924248693061--jayengineering.netlify.app",
+	        "http://localhost:4200"
+	    }
+	)
+
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/api/dimensions")
 public class DimensionController {
 

@@ -9,9 +9,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@CrossOrigin(
+	    origins = {
+	        "https://jayengineering.netlify.app",
+	        "https://69138be527cb924248693061--jayengineering.netlify.app",
+	        "http://localhost:4200"
+	    }
+	)
+
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*")
 public class AuthController {
 
     @Autowired

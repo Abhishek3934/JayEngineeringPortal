@@ -13,9 +13,17 @@ import org.springframework.web.bind.annotation.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+
+@CrossOrigin(
+	    origins = {
+	        "https://jayengineering.netlify.app",
+	        "https://69138be527cb924248693061--jayengineering.netlify.app",
+	        "http://localhost:4200"
+	    }
+	)
+
 @RestController
 @RequestMapping("/api/reports")
-@CrossOrigin(origins = "*")
 public class ReportController {
 
     @Autowired
