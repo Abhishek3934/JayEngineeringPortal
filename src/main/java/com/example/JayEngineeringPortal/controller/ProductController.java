@@ -22,7 +22,7 @@ public class ProductController {
     private AppService appService;
 
     // ✅ Add Product
-    @PostMapping("/products/add")
+    @PostMapping("/add-product")
     public ResponseEntity<?> addProduct(@RequestBody Product p) {
         try {
             Product saved = appService.saveProduct(p);
