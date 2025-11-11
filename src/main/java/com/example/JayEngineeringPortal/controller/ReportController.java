@@ -17,6 +17,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/reports")
+@CrossOrigin(origins = "*")
 public class ReportController {
 
     @Autowired
