@@ -1,0 +1,10 @@
+{
+  "build": {
+    "type": "maven",
+    "goal": "clean package -DskipTests"
+  },
+  "deploy": {
+    "jarName": "target/JayEngineeringPortal-0.0.1-SNAPSHOT.jar",
+    "run": "java -jar target/JayEngineeringPortal-0.0.1-SNAPSHOT.jar"
+  }
+}
