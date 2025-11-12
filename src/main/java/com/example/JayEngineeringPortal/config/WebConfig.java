@@ -15,18 +15,20 @@ public class WebConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // ✅ Add all possible Netlify origins you might use
+        // ✅ Allowed Frontend Origins (add all your Netlify preview URLs if needed)
         config.setAllowedOrigins(Arrays.asList(
                 "https://jayengineering.netlify.app",
                 "https://69145147c910d53131927ad1--jayengineering.netlify.app",
-                "https://6913975361dc385c9a06fcc5--jayengineering.netlify.app",
+                "https://6914554f61dc38056006fe7b--jayengineering.netlify.app",
                 "http://localhost:4200"
         ));
 
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept"));
-        config.setExposedHeaders(Arrays.asList("Authorization"));
+        // ✅ Allow credentials and all common headers/methods
         config.setAllowCredentials(true);
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+
+        // ✅ This fixes OPTIONS preflight issue
         config.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
