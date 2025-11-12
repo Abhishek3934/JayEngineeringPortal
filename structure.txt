@@ -21,6 +21,9 @@ D:.
 ¦       org.eclipse.jdt.core.prefs
 ¦       org.eclipse.m2e.core.prefs
 ¦       
++---clevercloud
+¦       java.json
+¦       
 +---src
 ¦   +---main
 ¦   ¦   +---java
@@ -29,6 +32,9 @@ D:.
 ¦   ¦   ¦       ¦   +---JayEngineeringPortal
 ¦   ¦   ¦       ¦       ¦   JayEngineeringPortalApplication.java
 ¦   ¦   ¦       ¦       ¦   
+¦   ¦   ¦       ¦       +---config
+¦   ¦   ¦       ¦       ¦       WebConfig.java
+¦   ¦   ¦       ¦       ¦       
 ¦   ¦   ¦       ¦       +---controller
 ¦   ¦   ¦       ¦       ¦       AuthController.java
 ¦   ¦   ¦       ¦       ¦       DimensionController.java
@@ -58,10 +64,8 @@ D:.
 ¦   ¦   ¦       ¦               DimensionService.java
 ¦   ¦   ¦       ¦               
 ¦   ¦   ¦       +---JayEngineeringPortal
-¦   ¦   ¦           +---config
-¦   ¦   ¦                   CorsConfig.java
-¦   ¦   ¦                   
 ¦   ¦   +---resources
+¦   ¦       ¦   application-cloud.properties
 ¦   ¦       ¦   application.properties
 ¦   ¦       ¦   
 ¦   ¦       +---static
@@ -77,8 +81,10 @@ D:.
 ¦                           
 +---target
     ¦   JayEngineeringPortal-0.0.1-SNAPSHOT.jar
+    ¦   JayEngineeringPortal-0.0.1-SNAPSHOT.jar.original
     ¦   
     +---classes
+    ¦   ¦   application-cloud.properties
     ¦   ¦   application.properties
     ¦   ¦   
     ¦   +---com
@@ -86,6 +92,9 @@ D:.
     ¦   ¦   ¦   +---JayEngineeringPortal
     ¦   ¦   ¦       ¦   JayEngineeringPortalApplication.class
     ¦   ¦   ¦       ¦   
+    ¦   ¦   ¦       +---config
+    ¦   ¦   ¦       ¦       WebConfig.class
+    ¦   ¦   ¦       ¦       
     ¦   ¦   ¦       +---controller
     ¦   ¦   ¦       ¦       AuthController.class
     ¦   ¦   ¦       ¦       DimensionController.class
@@ -115,9 +124,15 @@ D:.
     ¦   ¦   ¦               DimensionService.class
     ¦   ¦   ¦               
     ¦   ¦   +---JayEngineeringPortal
-    ¦   ¦       +---config
-    ¦   ¦               CorsConfig.class
-    ¦   ¦               
+    ¦   +---META-INF
+    ¦   ¦   ¦   MANIFEST.MF
+    ¦   ¦   ¦   
+    ¦   ¦   +---maven
+    ¦   ¦       +---com.example
+    ¦   ¦           +---JayEngineeringPortal
+    ¦   ¦                   pom.properties
+    ¦   ¦                   pom.xml
+    ¦   ¦                   
     ¦   +---templates
     ¦           inspection_template.xlsx
     ¦           
@@ -140,10 +155,6 @@ D:.
     ¦                   createdFiles.lst
     ¦                   inputFiles.lst
     ¦                   
-    +---surefire-reports
-    ¦       com.example.JayEngineeringPortal.JayEngineeringPortalApplicationTests.txt
-    ¦       TEST-com.example.JayEngineeringPortal.JayEngineeringPortalApplicationTests.xml
-    ¦       
     +---test-classes
         +---com
             +---example
